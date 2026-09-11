@@ -14,17 +14,16 @@
 </head>
 <body class="p-4 md:p-10">
     <div class="max-w-5xl mx-auto space-y-6">
-        <div class="apple-card p-6 md:p-8 flex items-center justify-between border border-gray-100">
+        <div class="apple-card p-6 md:p-8 flex items-center justify-center border border-gray-100">
             <div class="flex items-center space-x-4">
                 <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center font-bold text-2xl">
-                    &#x63743;
+                    棟
                 </div>
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">Apple Support AI Agent</h1>
                     <p class="text-sm text-gray-500">Hiver SDE Take-Home: Intent Classification, Grounded Reply &amp; Escalation Router</p>
                 </div>
             </div>
-            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Live Demo API</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -37,15 +36,15 @@
                     <div class="mt-4 space-y-2">
                         <p class="text-xs font-medium text-gray-600">Quick Test Scenarios:</p>
                         <div class="flex flex-wrap gap-2">
-                            <button onclick="setPreset(1)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">Battery Drain (Intent, Auto)</button>
-                            <button onclick="setPreset(2)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">Card Billing (PII Escalate)</button>
-                            <button onclick="setPreset(3)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">Swollen Battery (Hazard)</button>
-                            <button onclick="setPreset(4)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">System Outage (Auto)</button>
+                            <button type="button" onclick="setPreset(1)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">Battery Drain (Auto)</button>
+                            <button type="button" onclick="setPreset(2)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">Card Billing (PII Escalate)</button>
+                            <button type="button" onclick="setPreset(3)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">Swollen Battery (Hazard)</button>
+                            <button type="button" onclick="setPreset(4)" class="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-800 font-medium">System Outage (Auto)</button>
                         </div>
                     </div>
                 </div>
 
-                <button onclick="processTweet()" id="btnProcess" class="mt-6 w-full py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-xl transition shadow">
+                <button type="button" id="btnProcess" class="mt-6 w-full py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-xl transition shadow">
                     Process with Agent
                 </button>
             </div>
@@ -98,12 +97,19 @@
 
 
         async function processTweet() {
-            const text = docUment.getElementById('tweetInput').value.trim();
-            if (!text) return;
+            const textArea = document.getElementById('tweetInput');
+            if (!textArea) return;
+            const text = textArea.value.trim();
+            if (!text) {
+                alert('Please enter a customer inquiry or select a preset.');
+                return;
+            }
 
             const btn = document.getElementById('btnProcess');
-            btn.innerText = 'Analyzing...';
-            btn.disabled = true;
+            if (btn) {
+                btn.innerText = 'Analyzing...';
+                btn.disabled = true;
+            }
 
             try {
                 const res = await fetch('/api/process', {
@@ -111,33 +117,50 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text: text })
                 });
+
+                if (!res.ok) {
+                    throw new Error('HTTP ' + res.status + ': ' + await res.text());
+                }
+
                 const data = await res.json();
-                
+
                 document.getElementById('emptyState').classList.add('hidden');
                 document.getElementById('resultContainer').classList.remove('hidden');
 
                 document.getElementById('resIntent').innerText = data.intent;
                 document.getElementById('resConf').innerText = (data.intent_confidence * 100).toFixed(1) + '%';
 
+
                 const badge = document.getElementById('resDecisionBadge');
                 if (data.escalate) {
                     badge.className = 'inline-block px-3 py-1 text-xs font-bold rounded-lg badge-escalate';
-                    badge.innerText = '&#x26A0&; ' + data.escalation_decision;
+                    badge.innerText = 'ESCALATE: ' + data.escalation_decision;
                 } else {
                     badge.className = 'inline-block px-3 py-1 text-xs font-bold rounded-lg badge-auto';
-                    badge.innerText = '&#x2713; ' + data.escalation_decision;
+                    badge.innerText = 'AUTO RESOLVE: ' + data.escalation_decision;
                 }
+
 
                 document.getElementById('resReason').innerText = data.escalation_reason;
                 document.getElementById('resReply').innerText = data.drafted_reply;
 
             } catch (err) {
-                alert('Error processing query: ' + err);
+                alert('Error processing query: ' + err.message);
             } finally {
-                btn.innerText = 'Process with Agent';
-                btn.disabled = false;
+                if (btn) {
+                    btn.innerText = 'Process with Agent';
+                    btn.disabled = false;
+                }
             }
         }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('btnProcess');
+            if (btn) {
+                btn.addEventListener('click', processTweet);
+            }
+        });
     </script>
 </body>
 </html>
