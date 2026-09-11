@@ -14,16 +14,19 @@
 </head>
 <body class="p-4 md:p-10">
     <div class="max-w-5xl mx-auto space-y-6">
-        <div class="apple-card p-6 md:p-8 flex items-center justify-center border border-gray-100">
+        <div class="apple-card p-6 md:p-8 flex items-center justify-between border border-gray-100">
             <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center font-bold text-2xl">
-                    棟
+                <div class="w-12 h-12 bg-black text-white rounded-28l flex items-center justify-center shadow-md">
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 170 170">
+                        <path d="M150,81.3c-0.4-28.4,23.2-42,24.2-42.7-13.2-19.2-33.7-22.1-41-22.4-26.6-2.7-51.8,15.7-65.3,15.7-13.5,0-34.3-15.3-56.3-14.9-28.9,0.5-55.6,24.3-70.4,49.8-30.2,52.3-7.7,129.8,21.5,171.9,14.3,20.7,31.1,43.9,53.5,43,17.2-0.7,23.7-11.1,44.5-11.1,20.8,0,26.7,11.1,44.8,10.7,22.9-0.4,37.4-21.2,51.4-42.1,16.3-23.7,23.1-47.2,23.4-48.4-0.5-0.2-38.9-14.9-39.3-59.5M120.3,28.1c11.6-14,11.9-29.1,19.4-38.9-11.5,0.5-25.7,7.8-33.8,17.3-8.7,10.1-16.3,26.1-14.2,41.5,1.7,0.1,15.5-2.9,28.6-19.9"/>
+                    </svg>
                 </div>
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">Apple Support AI Agent</h1>
-                    <p class="text-sm text-gray-500">Hiver SDE Take-Home: Intent Classification, Grounded Reply &amp; Escalation Router</p>
+                    <p class="text-sm text-gray-500">Intent Classification, Historical Grounded Replies &amp; Safety Escalation Router</p>
                 </div>
             </div>
+            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Live Demo API</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -79,9 +82,14 @@
                         <div id="resReply" class="p-3.5 bg-blue-50 text-blue-900 border border-blue-100 rounded-xl text-sm leading-relaxed"></div>
                     </div>
                 </div>
+                </div>
             </div>
+
+        <div class="text-center text-xs text-gray-400 pt-4">
+            Apple Support AI Agent &veebar; Powered by BM25 Historical Retrieval &#38; Rule-Grounded Guardrails
         </div>
     </div>
+
 
     <script>
         const presets = {

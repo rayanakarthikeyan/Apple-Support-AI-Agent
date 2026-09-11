@@ -1,4 +1,4 @@
-# Hiver SDE Intern - Customer Support AI Agent & Evaluation Harness
+# Apple Support AI Agent & Evaluation Harness
 
 **Target Brand:** @AppleSupport  
  **Dataset:** Customer Support on Twitter (Kaggle, multi-turn threads)  
