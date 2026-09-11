@@ -1,0 +1,248 @@
+[
+  {
+    "customer": "@AppleSupport My iPhone 11 battery is draining completely within 3 hours after updating to iOS 15.2. Help!",
+    "reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+    "intent": "TECH_TROUBLESHOOTING",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Standard diagnostics can be self-served through Settings > Battery and public support guide.",
+    "tags": [
+      "battery",
+      "ios_update"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Bluetooth keeps disconnecting from my AirPods Pro every 5 minutes while listening to Spotify.",
+    "reply": "Let us work together to get your AirPods connected smoothly. Start by placing them in their case for 30 seconds, then reset them using these steps: https://apple.co/reset-airpods. Does this occur with other audio apps too? ^TS",
+    "intent": "TECH_TROUBLESHOOTING",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Bluetooth pairing resets are easily guided via standard public troubleshooting.",
+    "tags": [
+      "airpods",
+      "bluetooth"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Safari keeps crashing and freezing every time I try to open a new tab on macOS Monterey.",
+    "reply": "We are here to help get Safari running smoothly. Try clearing your history and website data, and test if the issue persists in Safe Mode: https://apple.co/safari-safe. Let us know what happens. ^RM",
+    "intent": "TECH_TROUBLESHOOTING",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Public browser cache and Safe Mode instructions can be provided directly.",
+    "tags": [
+      "safari",
+      "macos",
+      "crash"
+    ]
+  },
+  {
+    "customer": "@AppleSupport After the latest update, Wi-Fi button is greyed out completely and will not turn on.",
+    "reply": "That is definitely concerning. Have you tried restarting your iPhone or resetting Network Settings under Settings > General > Transfer or Reset iPhone > Reset > Reset Network Settings? Let us know if that helps. ^KH",
+    "intent": "TECH_TROUBLESHOOTING",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Standard network reset troubleshooting procedure before deciding on hardware escalation.",
+    "tags": [
+      "wifi",
+      "network_reset"
+    ]
+  },
+  {
+    "customer": "@AppleSupport My iPhone camera screen is completely black when opening the camera app, but front selfie works.",
+    "reply": "Let us check this out. First, please close all running apps and restart your device. If the rear camera is still black after a restart, please meet us in DM so we can run remote hardware diagnostics: https://twitter.com/messages/compose?recipient_id=AppleSupport ^SB",
+    "intent": "TECH_TROUBLESHOOTING",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_COMPLEX",
+    "escalation_reason": "Camera hardware failure suspected; requires private DM to run Apple diagnostics.",
+    "tags": [
+      "camera",
+      "hardware_diag"
+    ]
+  },
+  {
+    "customer": "@AppleSupport I was charged .99 twice for iCloud storage subscription this morning on card ending in 4102. Please refund!",
+    "reply": "We would be glad to look into this billing discrepancy. For your privacy and security, please never share card info publicly. Please visit https://reportaproblem.apple.com to view purchases, or send us a DM with your Apple ID email: https://twitter.com/messages/compose?recipient_id=AppleSupport ^ER",
+    "intent": "ACCOUNT_BILLING",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_SENSITIVE",
+    "escalation_reason": "Involves unauthorized financial charges and payment card details (PII). Requires secure DM or official refund portal.",
+    "tags": [
+      "billing",
+      "refund",
+      "pii"
+    ]
+  },
+  {
+    "customer": "@AppleSupport My Apple ID has been locked for security reasons and I cannot receive the two-factor SMS because my phone was stolen.",
+    "reply": "Security is our highest priority. To begin account recovery safely without your trusted device, visit https://iforgot.apple.com. If you need step-by-step assistance, please connect with our dedicated account security advisors directly in DM: https://twitter.com/messages/compose?recipient_id=AppleSupport ^MW",
+    "intent": "ACCOUNT_BILLING",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_SENSITIVE",
+    "escalation_reason": "Account lockout with lost/stolen 2FA device requires account recovery protocol and identity verification.",
+    "tags": [
+      "apple_id",
+      "security",
+      "lockout"
+    ]
+  },
+  {
+    "customer": "@AppleSupport How do I cancel an active HBO Max subscription that I bought through the App Store?",
+    "reply": "We can help you manage your subscriptions! Go to Settings > [Your Name] > Subscriptions, tap HBO Max, and select Cancel Subscription. You can also view full steps here: https://apple.co/manage-subscriptions ^JN",
+    "intent": "ACCOUNT_BILLING",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Standard self-serve subscription cancellation procedure; no private account access required.",
+    "tags": [
+      "subscription",
+      "self_serve"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Someone hacked into my iCloud account and changed the trusted phone number! Immediate help needed!",
+    "reply": "We take unauthorized account access very seriously. Please immediately head to https://iforgot.apple.com to attempt recovery, and send us a direct message so an Account Security Specialist can prioritize your case: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Security",
+    "intent": "ACCOUNT_BILLING",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_SENSITIVE",
+    "escalation_reason": "Active account compromise / hacking is an urgent security incident requiring human security specialist.",
+    "tags": [
+      "hack",
+      "security_alert",
+      "urgent"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Dropped my iPhone 13 Pro and the front screen shattered. How much will it cost to replace it and how do I book an appointment?",
+    "reply": "We can definitely help you arrange a screen repair. You can check estimated repair costs and reserve an appointment at your nearest Apple Store or Authorized Service Provider here: https://apple.co/repair-estimate. Let us know if you need help finding a store! ^AL",
+    "intent": "HARDWARE_REPAIR",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Public repair cost estimator and Genius Bar reservation links provide complete self-serve resolution.",
+    "tags": [
+      "screen_repair",
+      "cost",
+      "genius_bar"
+    ]
+  },
+  {
+    "customer": "@AppleSupport My MacBook Pro battery has physically swollen and is pushing the trackpad up! The trackpad will not click.",
+    "reply": "Please stop using and charging the MacBook immediately for your safety. We urge you to bring it to an Apple Store or Authorized Service Provider as soon as possible. Please DM us your location so we can help schedule priority service: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Safety",
+    "intent": "HARDWARE_REPAIR",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_COMPLEX",
+    "escalation_reason": "Physical thermal safety hazard (swollen lithium battery). Requires immediate human escalation and safety warnings.",
+    "tags": [
+      "swollen_battery",
+      "safety_critical"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Liquid spilled on my iPad Pro keyboard port and now it will not charge or turn on at all.",
+    "reply": "We understand how stressful liquid contact is. Do not plug the iPad into a charger. Please send us a DM so we can review your AppleCare+ coverage and set up an inspection: https://twitter.com/messages/compose?recipient_id=AppleSupport ^TC",
+    "intent": "HARDWARE_REPAIR",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_COMPLEX",
+    "escalation_reason": "Liquid damage requires hardware repair assessment, warranty check, and mail-in or in-store repair dispatch.",
+    "tags": [
+      "liquid_damage",
+      "applecare"
+    ]
+  },
+  {
+    "customer": "@AppleSupport How do I transfer all my photos, contacts, and WhatsApp chats from an Android phone to a new iPhone 14?",
+    "reply": "Welcome to iPhone! The easiest way is using the Move to iOS app from the Google Play Store on your Android device during initial iPhone setup. Follow our full guide here: https://apple.co/move-to-ios ^ST",
+    "intent": "HOW_TO_QUERY",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Educational how-to inquiry fully solved by public guide and Move to iOS app link.",
+    "tags": [
+      "switch_to_iphone",
+      "move_to_ios"
+    ]
+  },
+  {
+    "customer": "@AppleSupport How do I enable Night Shift and True Tone on my iPad Air 5?",
+    "reply": "Great question! Open Settings > Display & Brightness. There you can toggle True Tone on or tap Night Shift to set a custom sunset-to-sunrise schedule. More details: https://apple.co/night-shift ^DC",
+    "intent": "HOW_TO_QUERY",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Simple procedural question handled cleanly via public documentation steps.",
+    "tags": [
+      "night_shift",
+      "display_settings"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Can I use dual SIM with two physical nano-SIM cards on US iPhone 13?",
+    "reply": "In the US, iPhone 13 models support dual SIM using one physical nano-SIM and one eSIM, or two active eSIMs. Dual physical nano-SIM trays are only available in specific regions like Mainland China: https://apple.co/dual-sim-info ^HB",
+    "intent": "HOW_TO_QUERY",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Product specification and hardware capability question; fully addressable via public specs.",
+    "tags": [
+      "dual_sim",
+      "specifications"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Is Apple Music down right now? None of my playlists are loading and getting Error 503.",
+    "reply": "We are currently monitoring all systems. You can check the real-time status of Apple Music and other iCloud services on our System Status page: https://www.apple.com/support/systemstatus. Let us know if you are on Wi-Fi or cellular! ^MS",
+    "intent": "STATUS_OUTAGE",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "System status queries are best directed to the live Apple System Status dashboard.",
+    "tags": [
+      "system_status",
+      "apple_music_down"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Is iMessage having a global outage? Messages are failing to deliver across our entire office in London.",
+    "reply": "Thanks for reaching out. Please check our official Apple System Status dashboard to see current service availability: https://www.apple.com/support/systemstatus. If all systems show green, try toggling iMessage off and on under Settings > Messages. ^GK",
+    "intent": "STATUS_OUTAGE",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "Service disruption inquiries are handled via the official System Status page and basic service toggles.",
+    "tags": [
+      "imessage",
+      "outage"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Your new iOS update is absolute garbage! The new Safari tab bar layout is completely unusable and ugly. Fire your UX designers!!",
+    "reply": "We appreciate you sharing your thoughts on the new Safari layout. If you prefer the previous layout, you can switch back to the Single Tab bar at top under Settings > Safari > Tabs. You can also share formal feedback with our product team at: https://apple.co/feedback ^CT",
+    "intent": "GENERAL_FEEDBACK_RANT",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "UX complaint can be defused by providing the exact toggle setting to restore the old layout plus feedback link.",
+    "tags": [
+      "ux_feedback",
+      "safari_layout"
+    ]
+  },
+  {
+    "customer": "@AppleSupport I have been on hold for 2 hours with support, hung up on 3 times, and your advisor lied about my warranty. I am filing a lawsuit with my attorney today unless an executive calls me right now!",
+    "reply": "We are truly sorry to hear about your frustrating experience, as this does not reflect the standard of support we strive to deliver. Please send us a direct message with your case number and preferred contact phone number so we can immediately escalate this to a Senior Advisor: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Escalations",
+    "intent": "GENERAL_FEEDBACK_RANT",
+    "escalate": true,
+    "escalation_decision": "ESCALATE_FRUSTRATED",
+    "escalation_reason": "Extreme customer churn risk, repeated service failures, and explicit legal action threats require Senior Human Advisor escalation.",
+    "tags": [
+      "legal_threat",
+      "churn_risk",
+      "senior_advisor"
+    ]
+  },
+  {
+    "customer": "@AppleSupport Why are MacBooks so ridiculously overpriced when they cannot even run 32-bit games anymore?! RIP Steve Jobs era.",
+    "reply": "We value your perspective on our Mac lineup. Feedback regarding software compatibility and architecture can be submitted directly to our engineering teams at https://apple.co/feedback. ^AP",
+    "intent": "GENERAL_FEEDBACK_RANT",
+    "escalate": false,
+    "escalation_decision": "AUTO_RESOLVE",
+    "escalation_reason": "General venting/opinion without actionable issue; standard polite brand defusal with feedback link.",
+    "tags": [
+      "rant",
+      "feedback"
+    ]
+  }
+]

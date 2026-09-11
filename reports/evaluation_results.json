@@ -1,0 +1,355 @@
+{
+  "trivial_baseline": {
+    "agent_name": "Trivial Baseline",
+    "intent_accuracy": 0.31,
+    "intent_macro_f1": 0.0789,
+    "escalation_accuracy": 0.625,
+    "escalation_precision": 0.6071,
+    "escalation_recall": 0.2099,
+    "escalation_f1": 0.3119,
+    "false_alarm_rate": 0.0924,
+    "reply_token_f1": 0.2289,
+    "reply_rouge_l": 0.1995,
+    "judge_overall_rating": 4.42,
+    "failures_count": 155,
+    "failures": [
+      {
+        "id": "gold_tweet_020",
+        "customer_text": "@AppleSupport My iPhone 12 Pro is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_021",
+        "customer_text": "@AppleSupport My iPhone 13 is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_022",
+        "customer_text": "@AppleSupport My iPad Air is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_023",
+        "customer_text": "@AppleSupport My iPhone 11 is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_024",
+        "customer_text": "@AppleSupport My iPhone X is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_025",
+        "customer_text": "@AppleSupport My iPhone 14 Pro is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_026",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone X screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_027",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone 13 Pro Max screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_028",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone 11 Pro screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_029",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone 12 screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Thanks for reaching out! Please DM us your device model and iOS version: https://twitter.com/messages/compose?recipient_id=AppleSupport ^Support",
+        "judge_score": 4.2
+      }
+    ]
+  },
+  "simple_baseline": {
+    "agent_name": "Simple Baseline",
+    "intent_accuracy": 0.935,
+    "intent_macro_f1": 0.9505,
+    "escalation_accuracy": 0.745,
+    "escalation_precision": 1.0,
+    "escalation_recall": 0.3704,
+    "escalation_f1": 0.5405,
+    "false_alarm_rate": 0.0,
+    "reply_token_f1": 0.1936,
+    "reply_rouge_l": 0.1637,
+    "judge_overall_rating": 4.65,
+    "failures_count": 58,
+    "failures": [
+      {
+        "id": "gold_tweet_020",
+        "customer_text": "@AppleSupport My iPhone 12 Pro is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_021",
+        "customer_text": "@AppleSupport My iPhone 13 is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_022",
+        "customer_text": "@AppleSupport My iPad Air is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_023",
+        "customer_text": "@AppleSupport My iPhone 11 is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_024",
+        "customer_text": "@AppleSupport My iPhone X is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_025",
+        "customer_text": "@AppleSupport My iPhone 14 Pro is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_026",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone X screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_027",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone 13 Pro Max screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_028",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone 11 Pro screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_029",
+        "customer_text": "@AppleSupport A bright vertical green line appeared on my iPhone 12 screen out of nowhere. No drops or cracks.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "Hello! We understand you have an issue related to TECH_TROUBLESHOOTING. Please check Apple Support at https://support.apple.com. ^Apple",
+        "judge_score": 4.2
+      }
+    ]
+  },
+  "production_agent": {
+    "agent_name": "Production Agent",
+    "intent_accuracy": 0.935,
+    "intent_macro_f1": 0.9505,
+    "escalation_accuracy": 0.845,
+    "escalation_precision": 0.8676,
+    "escalation_recall": 0.7284,
+    "escalation_f1": 0.7919,
+    "false_alarm_rate": 0.0756,
+    "reply_token_f1": 0.2789,
+    "reply_rouge_l": 0.2012,
+    "judge_overall_rating": 4.79,
+    "failures_count": 38,
+    "failures": [
+      {
+        "id": "gold_tweet_020",
+        "customer_text": "@AppleSupport My iPhone 12 Pro is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_021",
+        "customer_text": "@AppleSupport My iPhone 13 is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_022",
+        "customer_text": "@AppleSupport My iPad Air is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_023",
+        "customer_text": "@AppleSupport My iPhone 11 is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_024",
+        "customer_text": "@AppleSupport My iPhone X is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_025",
+        "customer_text": "@AppleSupport My iPhone 14 Pro is stuck on the Apple logo loop and will not boot up even after force restart.",
+        "gold_intent": "TECH_TROUBLESHOOTING",
+        "pred_intent": "TECH_TROUBLESHOOTING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_031",
+        "customer_text": "@AppleSupport I was charged  on my bank card from APPLE.COM/BILL today without authorization! Refund this immediately!",
+        "gold_intent": "ACCOUNT_BILLING",
+        "pred_intent": "ACCOUNT_BILLING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_032",
+        "customer_text": "@AppleSupport I was charged  on my bank card from APPLE.COM/BILL today without authorization! Refund this immediately!",
+        "gold_intent": "ACCOUNT_BILLING",
+        "pred_intent": "ACCOUNT_BILLING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_033",
+        "customer_text": "@AppleSupport I was charged  on my bank card from APPLE.COM/BILL today without authorization! Refund this immediately!",
+        "gold_intent": "ACCOUNT_BILLING",
+        "pred_intent": "ACCOUNT_BILLING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      },
+      {
+        "id": "gold_tweet_034",
+        "customer_text": "@AppleSupport I was charged  on my bank card from APPLE.COM/BILL today without authorization! Refund this immediately!",
+        "gold_intent": "ACCOUNT_BILLING",
+        "pred_intent": "ACCOUNT_BILLING",
+        "gold_escalate": true,
+        "pred_escalate": false,
+        "agent_reply": "We would like to help with your battery performance! You can check your battery health and usage under Settings > Battery. Let us know what app is consuming the most power: https://apple.co/battery-help ^DM",
+        "judge_score": 4.2
+      }
+    ]
+  },
+  "human_judge_calibration": {
+    "cohens_kappa": 0.6753,
+    "exact_match_ratio": 0.84,
+    "sample_size": 50
+  }
+}
