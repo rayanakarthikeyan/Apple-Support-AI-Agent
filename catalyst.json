@@ -1,0 +1,11 @@
+﻿{
+  " functions\: {
+ \targets\: [
+ \support_agent_func\
+ ],
+ \ignore\: []
+ },
+ \client\: {
+ \source\: \static\
+ }
+}
