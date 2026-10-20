@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: support-evidence
+    runtime: docker
+    dockerfilePath: ./Dockerfile.evidence
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: research-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: EVIDENCE_TOKEN
+        generateValue: true
+      - key: EVIDENCE_DATA
+        value: /data

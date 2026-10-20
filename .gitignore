@@ -10,3 +10,9 @@ ENV/
 .pytest_cache/
 .coverage
 htmlcov/
+
+.evidence/
+.evidence-models/
+reports/evidence-tests.xml
+tmp/
+.ruff_cache/

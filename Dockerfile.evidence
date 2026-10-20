@@ -1,0 +1,12 @@
+FROM python:3.12-slim-bookworm
+WORKDIR /app
+COPY requirements-evidence.txt .
+RUN pip install --no-cache-dir -r requirements-evidence.txt
+COPY src ./src
+COPY static/evidence.html static/evidence.css static/evidence.js ./static/
+RUN useradd --create-home researcher && mkdir /data && chown researcher:researcher /data
+USER researcher
+ENV EVIDENCE_DATA=/data PYTHONUNBUFFERED=1
+EXPOSE 8767
+HEALTHCHECK --interval=30s --timeout=5s CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8767/healthz')"
+CMD ["python", "-m", "uvicorn", "src.evidence.api:create_app", "--factory", "--host", "0.0.0.0", "--port", "8767", "--workers", "1"]
