@@ -1,6 +1,6 @@
 from typing import Dict, Any, List
 
-class LLMAsAJudgeRubric:
+class HeuristicReplyRubric:
     @staticmethod
     def evaluate_reply(customer_query: str, agent_reply: str, reference_reply: str,
                        agent_escalate: bool, gold_escalate: bool) -> Dict[str, Any]:

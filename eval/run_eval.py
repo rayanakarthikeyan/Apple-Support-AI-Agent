@@ -5,7 +5,7 @@ from typing import List, Dict, Any
 from src.agent.models import CustomerMessage, GoldEvaluationItem, Intent
 from src.agent.agent_pipeline import TrivialBaselineAgent, SimpleBaselineAgent, ProductionSupportAgent
 from eval.metrics import compute_classification_metrics, compute_binary_metrics, compute_token_f1_and_rouge, compute_cohens_kappa
-from eval.judge import LLMAsAJudgeRubric
+from eval.judge import HeuristicReplyRubric
 
 def load_gold_data(path='data/gold/golden_eval_set.jsonl'):
     items = []
@@ -40,7 +40,7 @@ def evaluate_system(agent, gold_items, agent_name):
         txt_m = compute_token_f1_and_rouge(out.drafted_reply, item.gold_reference_reply)
         token_f1_scores.append(txt_m['token_f1'])
         rouge_l_scores.append(txt_m['rouge_l'])
-        judge = LLMAsAJudgeRubric.evaluate_reply(item.customer_text, out.drafted_reply, item.gold_reference_reply, out.escalate, item.gold_escalate)
+        judge = HeuristicReplyRubric.evaluate_reply(item.customer_text, out.drafted_reply, item.gold_reference_reply, out.escalate, item.gold_escalate)
         judge_scores.append(judge['overall_score'])
         if (item.gold_intent.value != out.intent.value) or (item.gold_escalate != out.escalate):
             failures.append({
@@ -69,28 +69,10 @@ def evaluate_system(agent, gold_items, agent_name):
         'false_alarm_rate': e_m['false_alarm_rate'],
         'reply_token_f1': round(avg_f1, 4),
         'reply_rouge_l': round(avg_rl, 4),
-        'judge_overall_rating': round(avg_jd, 2),
+        'heuristic_overall_rating': round(avg_jd, 2),
         'failures_count': len(failures),
         'failures': failures[:10]
     }
-
-def run_human_calibration(gold_items):
-    prod = ProductionSupportAgent()
-    sample = gold_items[:50]
-    h_ratings, j_ratings = [], []
-    for item in sample:
-        msg = CustomerMessage(id=item.id, text=item.customer_text)
-        out = prod.process(msg)
-        judge = LLMAsAJudgeRubric.evaluate_reply(item.customer_text, out.drafted_reply, item.gold_reference_reply, out.escalate, item.gold_escalate)
-        j_sc = int(round(judge['overall_score']))
-        h_sc = j_sc
-        if 'battery' in item.customer_text.lower() and j_sc == 5:
-            h_sc = 4
-        h_ratings.append(h_sc)
-        j_ratings.append(j_sc)
-    kappa = compute_cohens_kappa(h_ratings, j_ratings)
-    exact = sum(1 for h, j in zip(h_ratings, j_ratings) if h == j) / len(h_ratings)
-    return {'cohens_kappa': kappa, 'exact_match_ratio': round(exact, 4), 'sample_size': len(sample)}
 
 def main():
     gold = load_gold_data()
@@ -99,20 +81,18 @@ def main():
     prod = ProductionSupportAgent()
     res_t = evaluate_system(trivial, gold, 'Trivial Baseline')
     res_s = evaluate_system(simple, gold, 'Simple Baseline')
-    res_p = evaluate_system(prod, gold, 'Production Agent')
-    calib = run_human_calibration(gold)
-    results = {'trivial_baseline': res_t, 'simple_baseline': res_s, 'production_agent': res_p, 'human_judge_calibration': calib}
+    res_p = evaluate_system(prod, gold, 'Retrieval and Routing Prototype')
+    results = {'trivial_baseline': res_t, 'simple_baseline': res_s, 'production_agent': res_p, 'evaluation_scope': 'Synthetic development fixtures; heuristic reply scoring; no LLM judge or human calibration'}
     os.makedirs('reports', exist_ok=True)
     with open('reports/evaluation_results.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
     print('='*75)
     print(f"{'Metric':<26} | {'Trivial':<12} | {'Simple':<12} | {'Our Agent':<12}")
     print('-'*75)
-    row_fmt = [('Intent Accuracy', 'intent_accuracy', '{:.1%}'), ('Intent Macro-F1', 'intent_macro_f1', '{:.3f}'), ('Escalation Precision', 'escalation_precision', '{:.1%}'), ('Escalation Recall', 'escalation_recall', '{:.1%}'), ('Escalation F1', 'escalation_f1', '{:.3f}'), ('False Alarm Rate', 'false_alarm_rate', '{:.1%}'), ('ROUGE-L Semantic Match', 'reply_rouge_l', '{:.3f}'), ('Judge Overall Score (1-5)', 'judge_overall_rating', '{:.2f}')]
+    row_fmt = [('Intent Accuracy', 'intent_accuracy', '{:.1%}'), ('Intent Macro-F1', 'intent_macro_f1', '{:.3f}'), ('Escalation Precision', 'escalation_precision', '{:.1%}'), ('Escalation Recall', 'escalation_recall', '{:.1%}'), ('Escalation F1', 'escalation_f1', '{:.3f}'), ('False Alarm Rate', 'false_alarm_rate', '{:.1%}'), ('ROUGE-L Token Overlap', 'reply_rouge_l', '{:.3f}'), ('Heuristic Score (1-5)', 'heuristic_overall_rating', '{:.2f}')]
     for lbl, key, fmt in row_fmt:
         print(f"{lbl:<26} | {_fmt(fmt, res_t[key]):<12} | {_fmt(fmt, res_s[key]):<12} | {_fmt(fmt, res_p[key]):<12}")
     print('='*75)
-    print(f"Judge-Human Calibration Cohen Kappa: {calib['cohens_kappa']} (Strong Agreement)")
 
 def _fmt(f, v):
     return f.format(v)
